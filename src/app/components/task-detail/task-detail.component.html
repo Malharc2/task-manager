@@ -1,0 +1,10 @@
+<div class="container mx-auto px-4 py-8"> <!-- Container with auto horizontal margins and specified padding -->
+  <h1 class="text-2xl font-bold mb-4 text-center">Task Details</h1> <!-- Heading with specified text size, font weight, margin bottom, and centered text alignment -->
+  <div *ngIf="task" class="bg-gray-200 shadow-md rounded p-4"> <!-- Conditional rendering based on the existence of 'task' -->
+    <h2 class="text-xl font-bold mb-2">{{ task.title }}</h2> <!-- Subheading with specified text size, font weight, and margin bottom, displaying task title -->
+    <p class="mb-2">{{ task.description }}</p> <!-- Paragraph displaying task description with margin bottom -->
+    <p class="mb-2">Due: {{ task.dueDate | date }}</p> <!-- Paragraph displaying due date of the task, formatted as a date -->
+    <div *ngIf="task.recurring" class="mb-2">Repeats: {{ task.frequency }}</div> <!-- Conditional rendering based on whether task is recurring, displaying frequency if it is -->
+    <a routerLink="/" class="bg-gray-300 text-white rounded-full py-2 px-4 hover:bg-pink-300 inline-block">Back to Task List</a> <!-- Link styled as a button with specified background color, text color, padding, and rounded corners, with hover effect -->
+  </div>
+</div>

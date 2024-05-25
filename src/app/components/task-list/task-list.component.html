@@ -1,0 +1,25 @@
+<div class="container mx-auto p-4"> <!-- Container for the entire task list -->
+  <h1 class="text-3xl font-bold mb-4">Task List</h1> <!-- Title for the task list -->
+  <a routerLink="/new" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-2 px-4 rounded-full">Create</a> <!-- Button to create a new task -->
+  <ul class="mt-4"> <!-- Unordered list to contain individual tasks -->
+    <!-- Loop through each task in the tasks array -->
+    <li *ngFor="let task of tasks" class="bg-gray-100 border border-gray-300 rounded p-4 mb-2 shadow-md">
+      <!-- Display the title of the task -->
+      <h2 class="text-2xl font-bold">{{ task.title }}</h2>
+      <!-- Display the description of the task -->
+      <p class="text-gray-600">{{ task.description }}</p>
+      <!-- Display the due date of the task -->
+      <p class="text-gray-600">Due: {{ task.dueDate | date }}</p>
+      <!-- Display the frequency of the task if it's recurring -->
+      <div *ngIf="task.recurring" class="text-gray-600">Repeats: {{ task.frequency }}</div>
+      <!-- Button to view the details of the task -->
+      <a [routerLink]="['/task', task.id]" class="text-xs px-1 py-0.9 rounded-full bg-blue-500 hover:bg-blue-700 text-white">View</a>
+      <!-- Button to edit the task -->
+      <a [routerLink]="['/edit', task.id]" class="text-xs px-1 py-0.9 rounded-full bg-yellow-500 hover:bg-yellow-700 text-white ml-1">Edit</a>
+      <!-- Button to delete the task -->
+      <button (click)="deleteTask(task.id)" class="text-xs px-1 py-0.9 rounded-full bg-red-500 hover:bg-red-700 text-white ml-1">Delete</button>
+      <!-- Checkbox to mark the task as completed/incomplete -->
+      <input type="checkbox" [checked]="task.completed" (change)="toggleCompletion(task)" class="ml-2">
+    </li>
+  </ul>
+</div>

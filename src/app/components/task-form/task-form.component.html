@@ -1,0 +1,82 @@
+<div class="container mx-auto">
+  <!-- Container for the form with styling -->
+  <div class="bg-gray-200 border border-gray-300 shadow-md rounded p-4 max-w-md mx-auto">
+    <!-- Heading dynamically displaying 'Edit Task' or 'New Task' based on task.id -->
+    <h1 class="text-2xl font-bold mb-4 text-center">
+      {{ task.id ? 'Edit Task' : 'New Task' }}
+    </h1>
+    <!-- Form submission triggering saveTask() method -->
+    <form (ngSubmit)="saveTask()">
+      <!-- Input field for task title -->
+      <div class="mb-4">
+        <label for="title" class="block text-sm font-medium mb-1">Title</label>
+        <input
+          [(ngModel)]="task.title"
+          name="title"
+          id="title"
+          type="text"
+          class="w-full border-gray-300 rounded-md shadow-sm py-2 px-3 form-input"
+          required
+        >
+      </div>
+      <!-- Textarea for task description -->
+      <div class="mb-4">
+        <label for="description" class="block text-sm font-medium mb-1">
+          Description
+        </label>
+        <textarea
+          [(ngModel)]="task.description"
+          name="description"
+          id="description"
+          class="w-full border-gray-300 rounded-md shadow-sm py-2 px-3 form-textarea"
+          required
+        ></textarea>
+      </div>
+      <!-- Input field for due date -->
+      <div class="mb-4">
+        <label for="dueDate" class="block text-sm font-medium mb-1">Due Date</label>
+        <input
+          [(ngModel)]="task.dueDate"
+          name="dueDate"
+          id="dueDate"
+          type="date"
+          class="w-full border-gray-300 rounded-md shadow-sm py-2 px-3 form-input"
+          required
+        >
+      </div>
+      <!-- Checkbox for recurring task option -->
+      <div class="mb-4">
+        <label for="recurring" class="block text-sm font-medium">Recurring</label>
+        <input
+          [(ngModel)]="task.recurring"
+          name="recurring"
+          id="recurring"
+          type="checkbox"
+          class="mt-1 block"
+        >
+      </div>
+      <!-- Dropdown for selecting recurrence frequency, conditionally displayed -->
+      <div *ngIf="task.recurring" class="mb-4">
+        <label for="frequency" class="block text-sm font-medium mb-1">Frequency</label>
+        <select
+          [(ngModel)]="task.frequency"
+          name="frequency"
+          id="frequency"
+          class="w-full border-gray-300 rounded-md shadow-sm py-2 px-3 form-select"
+        >
+          <option value="none">None</option>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </div>
+      <!-- Submit button, text dynamically changes between 'Create' and 'Update' -->
+      <button
+        type="submit"
+        class="bg-gradient-to-r from-red-500 to-yellow-500 text-white py-2 px-4 rounded-full hover:from-red-600 hover:to-yellow-600 focus:outline-none focus:shadow-outline-blue"
+      >
+        {{ task.id ? 'Update' : 'Create' }}
+      </button>
+    </form>
+  </div>
+</div>
