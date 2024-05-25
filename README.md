@@ -1,27 +1,111 @@
-# TaskScheduler
+# 🌟 Task Scheduler
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+A simple and elegant task scheduler application built with **Angular** and styled using **Tailwind CSS**. This application allows users to seamlessly add, view, edit, and delete tasks.
 
-## Development server
+## ✨ Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- 📝 **Add new tasks** with title, description, and due date.
+- 📋 **View a list of tasks** with clear, user-friendly UI.
+- ✏️ **Edit existing tasks** to update details.
+- 🗑️ **Delete tasks** that are no longer needed.
+- ✔️ **Mark tasks as complete/incomplete** for easy tracking.
 
-## Code scaffolding
+## 🚀 Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+Ensure you have the following installed:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Node.js** (v14 or later)
+- **npm** (v6 or later)
+- **Angular CLI** (v11 or later)
 
-## Running unit tests
+### Steps
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-username/task-scheduler.git
+   cd task-scheduler
+2. Install dependencies:
+npm install
+3. Install Tailwind CSS:
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
 
-## Running end-to-end tests
+4. Configure Tailwind CSS:
+Update tailwind.config.js:
+module.exports = {
+  purge: {
+    enabled: true,
+    content: [
+      './src/**/*.html',
+      './src/**/*.ts',
+    ],
+  },
+  darkMode: false,
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+};
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+5. Create Tailwind CSS file:
+Create src/styles/tailwind.css and add the following:
 
-## Further help
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+6. Update Angular styles configuration:
+In angular.json, update the styles array:
+"styles": [
+  "src/styles/tailwind.css",
+  "src/styles.css"
+],
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+📚 Usage
+Running the Application
+To run the application in development mode:
+ng serve
+Navigate to http://localhost:4200/ in your browser to see the application.
+
+📂 Project Structure
+src/app/: 
+Contains the main application code
+app.component.ts: 
+Main app component
+task.ts: 
+Task model
+task.service.ts: 
+Service for managing tasks
+task-list/:
+Task list component
+task-list.component.ts: 
+Task list component logic
+task-list.component.html:
+Task list component template
+task-list.component.css:
+Task list component styles
+task-form/: 
+Task form component
+task-form.component.ts:
+Task form component logic
+task-form.component.html: 
+Task form component template
+task-form.component.css: 
+Task form component styles
+
+
+
+🤝 Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure your code follows the style and conventions of the project.
+
+📄 License
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+🙏 Acknowledgments
+Angular
+Tailwind CSS
+Made with ❤️ by Malhaar
